@@ -7,3 +7,5 @@ export const ONBOARDING_SCREENS = {
 export const ONBOARDING_ROUTES = {
   ONBOARDING: 'onboardingRoutes',
 } as const;
+
+export const ONBOARDING_SEEN_KEY = 'ONBOARDING_SEEN_KEY';

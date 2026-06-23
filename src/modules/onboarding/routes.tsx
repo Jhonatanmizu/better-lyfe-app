@@ -3,9 +3,7 @@ import type { RoutesList } from '@shared/types';
 import type { OnboardingRoutesParamsList } from '@modules/onboarding/types/routes.types';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import TrackGoals from '@modules/onboarding/screens/TrackGoals/TrackGoals.index';
-import Habits from '@modules/onboarding/screens/Habits/Habits.index';
-import AIInsights from '@modules/onboarding/screens/AIInsights/AIInsights.index';
+import {TrackGoals, Habits, AIInsights} from "@modules/onboarding/screens/index";
 import { ONBOARDING_SCREENS } from '@modules/onboarding/constants';
 
 export type { OnboardingRoutesStack } from '@modules/onboarding/types/routes.types';

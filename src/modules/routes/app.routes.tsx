@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import {
   createNativeStackNavigator,
   NativeStackNavigationProp,
@@ -8,6 +8,8 @@ import type { RoutesList } from '@shared/types';
 import ExampleRoutes from '@modules/example/routes';
 import OnboardingRoutes from '@modules/onboarding/routes';
 import { APP_ROUTES } from '@modules/routes/constants';
+import { ONBOARDING_SEEN_KEY } from '@modules/onboarding/constants';
+import { useMMKVStorage } from '@/modules/shared/hooks';
 
 export type IAppStackParamsList = {
   [APP_ROUTES.EXAMPLE_ROUTES]: undefined;
@@ -18,7 +20,7 @@ export type IAppStackParamsList = {
 
 export type IAppStack = NativeStackNavigationProp<IAppStackParamsList>;
 
-export const appRoutesList: RoutesList<IAppStackParamsList>[] = [
+const appRoutesList: RoutesList<IAppStackParamsList>[] = [
   {
     name: APP_ROUTES.ONBOARDING_ROUTES,
     component: OnboardingRoutes,
@@ -32,13 +34,21 @@ export const appRoutesList: RoutesList<IAppStackParamsList>[] = [
 const AppStack = createNativeStackNavigator<IAppStackParamsList>();
 
 const AppRoutes = () => {
+  const { value } = useMMKVStorage(ONBOARDING_SEEN_KEY, false);
+  const isOnboardingSeen = !!value;
+
+  const routes = useMemo(
+    () => appRoutesList.filter(r => !isOnboardingSeen || r.name !== APP_ROUTES.ONBOARDING_ROUTES),
+    [isOnboardingSeen]
+  );
+
   return (
     <AppStack.Navigator
-      initialRouteName={APP_ROUTES.ONBOARDING_ROUTES}
+      initialRouteName={isOnboardingSeen ? APP_ROUTES.EXAMPLE_ROUTES : APP_ROUTES.ONBOARDING_ROUTES}
       screenOptions={() => ({
         headerShown: false,
       })}>
-      {appRoutesList.map(ap => (
+      {routes.map(ap => (
         <AppStack.Screen
           key={ap.name}
           name={ap.name}

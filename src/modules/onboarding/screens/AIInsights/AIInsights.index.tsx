@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
 import { Button } from 'react-native-paper';
 import { Sparkles } from 'lucide-react-native';
 import { useTranslation } from 'react-i18next';
@@ -33,29 +33,20 @@ const AIInsights = (): React.JSX.Element => {
 
   return (
     <Box style={styles.container}>
-      {/* Skip Button */}
-      <Box style={styles.skipContainer}>
-        <Text variant="skip" onPress={handleSkipPress}>
-          {t('onboarding.aiInsights.skip')}
-        </Text>
-      </Box>
+      <TouchableOpacity style={styles.skipContainer} onPress={handleSkipPress}>
+        <Text variant="skip">{t('onboarding.aiInsights.skip')}</Text>
+      </TouchableOpacity>
 
-      {/* Icon Section — concentric circles via nesting */}
       <Box style={styles.iconSection}>
         <View style={styles.circleOuter}>
           <View style={styles.circleMiddle}>
             <View style={styles.circleInner}>
-              <Sparkles
-                size={iconSize}
-                color={iconColor}
-                style={styles.icon}
-              />
+              <Sparkles size={iconSize} color={iconColor} style={styles.icon} />
             </View>
           </View>
         </View>
       </Box>
 
-      {/* Text Section */}
       <Box style={styles.textSection}>
         <Text variant="title" style={styles.title}>
           {t('onboarding.aiInsights.title')}
@@ -65,17 +56,16 @@ const AIInsights = (): React.JSX.Element => {
         </Text>
       </Box>
 
-      {/* Pagination Dots */}
       <Box style={styles.paginationContainer}>{renderDots()}</Box>
 
-      {/* Get Started Button */}
       <Box style={styles.buttonContainer}>
         <Button
           mode="contained"
           onPress={handleGetStartedPress}
           style={styles.button}
           labelStyle={styles.buttonLabel}
-          contentStyle={styles.buttonContent}>
+          contentStyle={styles.buttonContent}
+        >
           {t('onboarding.aiInsights.getStarted')}
         </Button>
       </Box>

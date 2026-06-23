@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {ActivityIndicator} from 'react-native';
 import {Box} from '@shared/components';
-import AppRoutes from './app.routes';
+import AppRoutes from '@modules/routes/app.routes';
 
 const RootStack = () => {
   const [isLoading] = useState(false);

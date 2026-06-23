@@ -1,0 +1,25 @@
+{
+  "example": {
+    "screenTitle": "Example Screen"
+  },
+  "onboarding": {
+    "trackGoals": {
+      "title": "Track Your Goals",
+      "description": "Set meaningful financial, health, and career goals. Break them down into achievable key results.",
+      "skip": "Skip",
+      "next": "Next"
+    },
+    "habits": {
+      "title": "Build Better Habits",
+      "description": "Turn your goals into daily routines. Track streaks, build momentum, and celebrate small wins every day.",
+      "skip": "Skip",
+      "next": "Next"
+    },
+    "aiInsights": {
+      "title": "AI-Powered Insights",
+      "description": "Get smart recommendations, weekly reviews, and a personal AI coach to help you stay on track.",
+      "skip": "Skip",
+      "getStarted": "Get Started"
+    }
+  }
+}

@@ -1,7 +1,8 @@
+import '@/infrastructure/i18n';
 import { NavigationContainer } from '@react-navigation/native';
 import { AppWrapper } from '@shared/components';
 import React from 'react';
-import RootStack from '@/modules/routes';
+import RootStack from '@modules/routes';
 
 export default function App() {
   return (

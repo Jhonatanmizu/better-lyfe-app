@@ -1,23 +1,23 @@
 import React from 'react';
 import { View } from 'react-native';
 import { Button } from 'react-native-paper';
-import { Target } from 'lucide-react-native';
+import { Sparkles } from 'lucide-react-native';
 import { useTranslation } from 'react-i18next';
 import { Box, Text } from '@shared/components';
-import useTrackGoals from './useTrackGoals';
+import useAIInsights from './useAIInsights';
 import useStyles from './useStyles';
 
-const TrackGoals = (): React.JSX.Element => {
+const AIInsights = (): React.JSX.Element => {
   const styles = useStyles();
   const { t } = useTranslation();
   const {
-    handleNextPress,
+    handleGetStartedPress,
     handleSkipPress,
     activeIndex,
     totalSteps,
     iconSize,
     iconColor,
-  } = useTrackGoals();
+  } = useAIInsights();
 
   const renderDots = () => {
     return Array.from({ length: totalSteps }, (_, index) => (
@@ -36,7 +36,7 @@ const TrackGoals = (): React.JSX.Element => {
       {/* Skip Button */}
       <Box style={styles.skipContainer}>
         <Text variant="skip" onPress={handleSkipPress}>
-          {t('onboarding.trackGoals.skip')}
+          {t('onboarding.aiInsights.skip')}
         </Text>
       </Box>
 
@@ -45,7 +45,7 @@ const TrackGoals = (): React.JSX.Element => {
         <View style={styles.circleOuter}>
           <View style={styles.circleMiddle}>
             <View style={styles.circleInner}>
-              <Target
+              <Sparkles
                 size={iconSize}
                 color={iconColor}
                 style={styles.icon}
@@ -58,29 +58,29 @@ const TrackGoals = (): React.JSX.Element => {
       {/* Text Section */}
       <Box style={styles.textSection}>
         <Text variant="title" style={styles.title}>
-          {t('onboarding.trackGoals.title')}
+          {t('onboarding.aiInsights.title')}
         </Text>
         <Text variant="description" style={styles.description}>
-          {t('onboarding.trackGoals.description')}
+          {t('onboarding.aiInsights.description')}
         </Text>
       </Box>
 
       {/* Pagination Dots */}
       <Box style={styles.paginationContainer}>{renderDots()}</Box>
 
-      {/* Next Button */}
+      {/* Get Started Button */}
       <Box style={styles.buttonContainer}>
         <Button
           mode="contained"
-          onPress={handleNextPress}
+          onPress={handleGetStartedPress}
           style={styles.button}
           labelStyle={styles.buttonLabel}
           contentStyle={styles.buttonContent}>
-          {t('onboarding.trackGoals.next')}
+          {t('onboarding.aiInsights.getStarted')}
         </Button>
       </Box>
     </Box>
   );
 };
 
-export default TrackGoals;
+export default AIInsights;

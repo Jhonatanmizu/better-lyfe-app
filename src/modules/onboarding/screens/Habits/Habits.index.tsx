@@ -1,13 +1,13 @@
 import React from 'react';
 import { View } from 'react-native';
 import { Button } from 'react-native-paper';
-import { Target } from 'lucide-react-native';
+import { Flame } from 'lucide-react-native';
 import { useTranslation } from 'react-i18next';
 import { Box, Text } from '@shared/components';
-import useTrackGoals from './useTrackGoals';
+import useHabits from './useHabits';
 import useStyles from './useStyles';
 
-const TrackGoals = (): React.JSX.Element => {
+const Habits = (): React.JSX.Element => {
   const styles = useStyles();
   const { t } = useTranslation();
   const {
@@ -17,7 +17,7 @@ const TrackGoals = (): React.JSX.Element => {
     totalSteps,
     iconSize,
     iconColor,
-  } = useTrackGoals();
+  } = useHabits();
 
   const renderDots = () => {
     return Array.from({ length: totalSteps }, (_, index) => (
@@ -36,7 +36,7 @@ const TrackGoals = (): React.JSX.Element => {
       {/* Skip Button */}
       <Box style={styles.skipContainer}>
         <Text variant="skip" onPress={handleSkipPress}>
-          {t('onboarding.trackGoals.skip')}
+          {t('onboarding.habits.skip')}
         </Text>
       </Box>
 
@@ -45,7 +45,7 @@ const TrackGoals = (): React.JSX.Element => {
         <View style={styles.circleOuter}>
           <View style={styles.circleMiddle}>
             <View style={styles.circleInner}>
-              <Target
+              <Flame
                 size={iconSize}
                 color={iconColor}
                 style={styles.icon}
@@ -58,10 +58,10 @@ const TrackGoals = (): React.JSX.Element => {
       {/* Text Section */}
       <Box style={styles.textSection}>
         <Text variant="title" style={styles.title}>
-          {t('onboarding.trackGoals.title')}
+          {t('onboarding.habits.title')}
         </Text>
         <Text variant="description" style={styles.description}>
-          {t('onboarding.trackGoals.description')}
+          {t('onboarding.habits.description')}
         </Text>
       </Box>
 
@@ -76,11 +76,11 @@ const TrackGoals = (): React.JSX.Element => {
           style={styles.button}
           labelStyle={styles.buttonLabel}
           contentStyle={styles.buttonContent}>
-          {t('onboarding.trackGoals.next')}
+          {t('onboarding.habits.next')}
         </Button>
       </Box>
     </Box>
   );
 };
 
-export default TrackGoals;
+export default Habits;

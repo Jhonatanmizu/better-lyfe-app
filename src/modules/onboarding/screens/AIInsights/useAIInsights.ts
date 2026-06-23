@@ -4,18 +4,18 @@ import { palette } from '@infrastructure/theme';
 import { OnboardingRoutesStack } from '@modules/onboarding/types/routes.types';
 import { APP_ROUTES } from '@modules/routes/constants';
 import { ONBOARDING_SCREENS } from '@modules/onboarding/constants';
-import { UseTrackGoalsReturn } from './TrackGoals.types';
+import { UseAIInsightsReturn } from './AIInsights.types';
 
 const TOTAL_STEPS = 3;
-const INITIAL_ACTIVE_INDEX = 0;
+const AI_INSIGHTS_ACTIVE_INDEX = 2;
 const ICON_SIZE = 40;
 
-const useTrackGoals = (): UseTrackGoalsReturn => {
+const useAIInsights = (): UseAIInsightsReturn => {
   const navigation = useNavigation<OnboardingRoutesStack>();
-  const [activeIndex] = useState<number>(INITIAL_ACTIVE_INDEX);
+  const [activeIndex] = useState<number>(AI_INSIGHTS_ACTIVE_INDEX);
 
-  const handleNextPress = useCallback(() => {
-    navigation.navigate(ONBOARDING_SCREENS.HABITS);
+  const handleGetStartedPress = useCallback(() => {
+    navigation.getParent()?.navigate(APP_ROUTES.EXAMPLE_ROUTES);
   }, [navigation]);
 
   const handleSkipPress = useCallback(() => {
@@ -23,7 +23,7 @@ const useTrackGoals = (): UseTrackGoalsReturn => {
   }, [navigation]);
 
   return {
-    handleNextPress,
+    handleGetStartedPress,
     handleSkipPress,
     activeIndex,
     totalSteps: TOTAL_STEPS,
@@ -32,4 +32,4 @@ const useTrackGoals = (): UseTrackGoalsReturn => {
   };
 };
 
-export default useTrackGoals;
+export default useAIInsights;

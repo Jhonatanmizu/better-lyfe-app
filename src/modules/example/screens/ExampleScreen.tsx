@@ -1,10 +1,13 @@
 import React from 'react';
-import {Box, Text} from '@shared/components';
+import { useTranslation } from 'react-i18next';
+import { Box, Text } from '@shared/components';
 
 const ExampleScreen = () => {
+  const { t } = useTranslation();
+
   return (
     <Box>
-      <Text>ExampleScreen</Text>
+      <Text>{t('example.screenTitle')}</Text>
     </Box>
   );
 };

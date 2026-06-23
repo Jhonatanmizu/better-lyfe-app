@@ -4,18 +4,18 @@ import { palette } from '@infrastructure/theme';
 import { OnboardingRoutesStack } from '@modules/onboarding/types/routes.types';
 import { APP_ROUTES } from '@modules/routes/constants';
 import { ONBOARDING_SCREENS } from '@modules/onboarding/constants';
-import { UseTrackGoalsReturn } from './TrackGoals.types';
+import { UseHabitsReturn } from './Habits.types';
 
 const TOTAL_STEPS = 3;
-const INITIAL_ACTIVE_INDEX = 0;
+const HABITS_ACTIVE_INDEX = 1;
 const ICON_SIZE = 40;
 
-const useTrackGoals = (): UseTrackGoalsReturn => {
+const useHabits = (): UseHabitsReturn => {
   const navigation = useNavigation<OnboardingRoutesStack>();
-  const [activeIndex] = useState<number>(INITIAL_ACTIVE_INDEX);
+  const [activeIndex] = useState<number>(HABITS_ACTIVE_INDEX);
 
   const handleNextPress = useCallback(() => {
-    navigation.navigate(ONBOARDING_SCREENS.HABITS);
+    navigation.navigate(ONBOARDING_SCREENS.AI_INSIGHTS);
   }, [navigation]);
 
   const handleSkipPress = useCallback(() => {
@@ -32,4 +32,4 @@ const useTrackGoals = (): UseTrackGoalsReturn => {
   };
 };
 
-export default useTrackGoals;
+export default useHabits;

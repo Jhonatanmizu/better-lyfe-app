@@ -1,4 +1,4 @@
-export interface UseTrackGoalsReturn {
+export interface UseHabitsReturn {
   handleNextPress: () => void;
   handleSkipPress: () => void;
   activeIndex: number;

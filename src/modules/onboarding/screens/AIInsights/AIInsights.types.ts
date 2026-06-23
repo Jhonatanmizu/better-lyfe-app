@@ -1,5 +1,5 @@
-export interface UseTrackGoalsReturn {
-  handleNextPress: () => void;
+export interface UseAIInsightsReturn {
+  handleGetStartedPress: () => void;
   handleSkipPress: () => void;
   activeIndex: number;
   totalSteps: number;

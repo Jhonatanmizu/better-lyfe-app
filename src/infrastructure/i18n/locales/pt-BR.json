@@ -1,0 +1,25 @@
+{
+  "example": {
+    "screenTitle": "Tela de Exemplo"
+  },
+  "onboarding": {
+    "trackGoals": {
+      "title": "Acompanhe Suas Metas",
+      "description": "Defina metas significativas de finanças, saúde e carreira. Divida-as em resultados-chave alcançáveis.",
+      "skip": "Pular",
+      "next": "Próximo"
+    },
+    "habits": {
+      "title": "Construa Hábitos Melhores",
+      "description": "Transforme suas metas em rotinas diárias. Acompanhe sequências, crie momentum e celebre pequenas vitórias todos os dias.",
+      "skip": "Pular",
+      "next": "Próximo"
+    },
+    "aiInsights": {
+      "title": "Insights com IA",
+      "description": "Receba recomendações inteligentes, revisões semanais e um coach de IA pessoal para ajudá-lo a manter o foco.",
+      "skip": "Pular",
+      "getStarted": "Começar"
+    }
+  }
+}

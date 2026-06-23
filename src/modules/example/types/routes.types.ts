@@ -1,3 +1,5 @@
+import { EXAMPLE_SCREENS } from '@modules/example/constants';
+
 export type ExampleRoutesParamsList = {
-  ExampleScreen: undefined;
+  [EXAMPLE_SCREENS.EXAMPLE_SCREEN]: undefined;
 };

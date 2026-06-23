@@ -1,8 +1,8 @@
 import React from 'react';
-import {describe, it, expect} from '@jest/globals';
-import {render, screen} from '@testing-library/react-native';
-import {AppWrapper} from '@/modules/shared/components';
-import {StatusBar, Text} from 'react-native';
+import { describe, it, expect } from '@jest/globals';
+import { render, screen } from '@testing-library/react-native';
+import { AppWrapper } from '@/modules/shared/components';
+import { Text } from 'react-native';
 
 describe('<AppWrapper />', () => {
   it('should render the safe app wrapper correctly', () => {
@@ -26,7 +26,6 @@ describe('<AppWrapper />', () => {
     const appWrapper = screen.getByTestId('test_safe_app_wrapper');
     expect(appWrapper.props.style).toEqual({
       flex: 1,
-      marginTop: expect.any(Number),
     });
   });
 
@@ -36,10 +35,9 @@ describe('<AppWrapper />', () => {
     expect(appWrapper.props.testID).toBe('test_safe_app_wrapper');
   });
 
-  it('should have the correct status bar height', () => {
+  it('should not have a manual marginTop', () => {
     render(<AppWrapper />);
     const appWrapper = screen.getByTestId('test_safe_app_wrapper');
-    const statusBarHeight = StatusBar.currentHeight || 0;
-    expect(appWrapper.props.style.marginTop).toBe(statusBarHeight);
+    expect(appWrapper.props.style.marginTop).toBeUndefined();
   });
 });

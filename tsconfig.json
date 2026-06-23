@@ -1,0 +1,23 @@
+{
+  "extends": "@react-native/typescript-config",
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["**/node_modules", "**/Pods"],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "jsx": "react",
+    "esModuleInterop": true,
+    "typeRoots": ["./src/modules/shared/types", "node_modules/@types"],
+    "paths": {
+      "@/*": ["src/*"],
+      "@modules/*": ["src/modules/*"],
+      "@shared/*": ["src/modules/shared/*"],
+      "@infrastructure/*": ["src/infrastructure/*"],
+      "@utils/*": ["src/modules/utils/*"],
+      "@services/*": ["src/services/*"],
+      "@config/*": ["src/modules/config/*"],
+      "@hooks/*": ["src/modules/hooks/*"],
+      "@assets/*": ["src/assets/*"],
+      "@navigation/*": ["src/navigation/*"]
+    }
+  }
+}

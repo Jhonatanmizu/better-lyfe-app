@@ -1,0 +1,42 @@
+default_platform(:android)
+
+platform :android do
+    desc "Build and upload to Google Play (internal test)"
+    lane :beta do
+      gradle(
+        task: "assemble",
+        build_type: "Release",
+        flavor: "production"
+      )
+      supply(
+        track: "internal",
+        aab: "../app/build/outputs/bundle/productionRelease/app-production-release.aab"
+      )
+    end
+
+    desc "Release to Google Play (production)"
+    lane :release do
+      gradle(
+        task: "assemble",
+        build_type: "Release",
+        flavor: "production"
+      )
+      supply(
+        track: "production",
+        aab: "../app/build/outputs/bundle/productionRelease/app-production-release.aab"
+      )
+    end
+  desc "Run Jest tests"
+  lane :test do
+    Dir.chdir("..") do
+      sh("yarn test")
+    end
+  end
+
+  desc "Build the Android app"
+  lane :build do
+    Dir.chdir("..") do
+      sh("yarn aos:prod:release-apk")
+    end
+  end
+end

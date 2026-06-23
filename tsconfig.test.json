@@ -1,0 +1,19 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "jsx": "react",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@modules/*": ["src/modules/*"],
+      "@infrastructure/*": ["src/modules/infrastructure/*"],
+      "@shared/*": ["src/modules/shared*"],
+      "@utils/*": ["src/modules/shared/utils/*"],
+      "@assets/*": ["src/assets/*"],
+      "@services/*": ["src/modules/shared/services/*"],
+      "@hooks/*": ["src/modules/shared/hooks/*"],
+      "@config/*": ["src/modules/shared/config/*"]
+    }
+  },
+  "include": ["src/**/*", "__tests__/**/*"]
+}

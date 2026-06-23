@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "TemplateReactNativeNewArch.app"
-               BlueprintName = "TemplateReactNativeNewArch"
-               ReferencedContainer = "container:TemplateReactNativeNewArch.xcodeproj">
+               BuildableName = "BetterLyfe.app"
+               BlueprintName = "BetterLyfe"
+               ReferencedContainer = "container:BetterLyfe.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "TemplateReactNativeNewArchTests.xctest"
-               BlueprintName = "TemplateReactNativeNewArchTests"
-               ReferencedContainer = "container:TemplateReactNativeNewArch.xcodeproj">
+               BuildableName = "BetterLyfeTests.xctest"
+               BlueprintName = "BetterLyfeTests"
+               ReferencedContainer = "container:BetterLyfe.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "TemplateReactNativeNewArch.app"
-            BlueprintName = "TemplateReactNativeNewArch"
-            ReferencedContainer = "container:TemplateReactNativeNewArch.xcodeproj">
+            BuildableName = "BetterLyfe.app"
+            BlueprintName = "BetterLyfe"
+            ReferencedContainer = "container:BetterLyfe.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "TemplateReactNativeNewArch.app"
-            BlueprintName = "TemplateReactNativeNewArch"
-            ReferencedContainer = "container:TemplateReactNativeNewArch.xcodeproj">
+            BuildableName = "BetterLyfe.app"
+            BlueprintName = "BetterLyfe"
+            ReferencedContainer = "container:BetterLyfe.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

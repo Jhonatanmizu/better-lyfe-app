@@ -1,4 +1,4 @@
-package com.templateReactNativeNewArch
+package com.betterlyfe
 
 import android.app.Application
 import com.facebook.react.PackageList

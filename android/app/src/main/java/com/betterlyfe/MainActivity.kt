@@ -1,4 +1,4 @@
-package com.templateReactNativeNewArch
+package com.betterlyfe
 
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate
@@ -13,7 +13,7 @@ class MainActivity : ReactActivity() {
    * rendering of the component.
    */
    
-  override fun getMainComponentName(): String = "TemplateReactNativeNewArch"
+  override fun getMainComponentName(): String = "BetterLyfe"
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(null)
   }

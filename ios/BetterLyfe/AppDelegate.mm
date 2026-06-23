@@ -8,7 +8,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  self.moduleName = @"TemplateReactNativeNewArch";
+  self.moduleName = @"BetterLyfe";
   self.dependencyProvider = [RCTAppDependencyProvider new];
 
   // You can add your custom initial props in the dictionary below.

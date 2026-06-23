@@ -4,11 +4,11 @@ platform :ios do
     desc "Build and upload to TestFlight"
     lane :beta do
       cocoapods(
-        workspace: "TemplateReactNativeNewArch.xcworkspace"
+        workspace: "BetterLyfe.xcworkspace"
       )
       build_app(
-        workspace: "TemplateReactNativeNewArch.xcworkspace",
-        scheme: "TemplateReactNativeNewArch"
+        workspace: "BetterLyfe.xcworkspace",
+        scheme: "BetterLyfe"
       )
       upload_to_testflight
     end
@@ -16,11 +16,11 @@ platform :ios do
     desc "Release to App Store"
     lane :release do
       cocoapods(
-        workspace: "TemplateReactNativeNewArch.xcworkspace"
+        workspace: "BetterLyfe.xcworkspace"
       )
       build_app(
-        workspace: "TemplateReactNativeNewArch.xcworkspace",
-        scheme: "TemplateReactNativeNewArch"
+        workspace: "BetterLyfe.xcworkspace",
+        scheme: "BetterLyfe"
       )
       upload_to_app_store
     end
@@ -34,11 +34,11 @@ platform :ios do
   desc "Build the iOS app"
   lane :build do
     cocoapods(
-      workspace: "TemplateReactNativeNewArch.xcworkspace"
+      workspace: "BetterLyfe.xcworkspace"
     )
     gym(
-      workspace: "TemplateReactNativeNewArch.xcworkspace",
-      scheme: "TemplateReactNativeNewArch",
+      workspace: "BetterLyfe.xcworkspace",
+      scheme: "BetterLyfe",
       configuration: "Release"
     )
   end

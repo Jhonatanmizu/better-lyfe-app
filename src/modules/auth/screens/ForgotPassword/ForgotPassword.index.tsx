@@ -54,15 +54,12 @@ const ForgotPassword = (): React.JSX.Element => {
           </Box>
 
           <Box style={styles.headerSection}>
-            <Text variant="title">
-              {t('screens.ForgotPassword.title')}
-            </Text>
+            <Text variant="title">{t('screens.ForgotPassword.title')}</Text>
             <Text variant="subtitle">
               {t('screens.ForgotPassword.subtitle')}
             </Text>
           </Box>
 
-          {/* Form Section */}
           <Box style={styles.formSection}>
             <Box style={styles.inputGroup}>
               <Text variant="label">
@@ -92,7 +89,6 @@ const ForgotPassword = (): React.JSX.Element => {
             </Box>
           </Box>
 
-          {/* General Error */}
           {generalError && (
             <Box style={styles.generalErrorContainer}>
               <Text variant="caption" style={styles.generalErrorText}>
@@ -101,7 +97,6 @@ const ForgotPassword = (): React.JSX.Element => {
             </Box>
           )}
 
-          {/* Success Message */}
           {isSuccess && (
             <Box style={styles.successContainer}>
               <Text variant="caption" style={styles.successText}>
@@ -110,7 +105,6 @@ const ForgotPassword = (): React.JSX.Element => {
             </Box>
           )}
 
-          {/* Send Reset Link Button */}
           <Box style={styles.buttonSection}>
             <TouchableOpacity
               style={[
@@ -134,7 +128,6 @@ const ForgotPassword = (): React.JSX.Element => {
             </TouchableOpacity>
           </Box>
 
-          {/* Back to Sign In */}
           <Box style={styles.backSection}>
             <TouchableOpacity
               style={styles.backButton}

@@ -1,4 +1,6 @@
 import { UseFormReturn } from 'react-hook-form';
+import type { NativeStackScreenProps } from '@react-navigation/native-stack';
+import type { AuthRoutesParamsList } from '@/modules/auth/types/routes.types';
 import { LoginFormData } from '@/modules/auth/schemas';
 
 export interface UseLoginReturn {
@@ -9,8 +11,4 @@ export interface UseLoginReturn {
   handleForgotPassword: () => void;
 }
 
-export interface LoginScreenProps {
-  navigation?: {
-    navigate: (screen: string) => void;
-  };
-}
+export type LoginScreenProps = NativeStackScreenProps<AuthRoutesParamsList, 'Login'>;

@@ -6,11 +6,12 @@ import { useNavigation } from '@react-navigation/native';
 import { loginSchema, LoginFormData } from '@/modules/auth/schemas';
 import { useAuthStore } from '@/modules/auth/store';
 import { AUTH_SCREENS } from '@/modules/auth/constants';
+import type { AuthRoutesStack } from '@/modules/auth/types/routes.types';
 import { UseLoginReturn } from './Login.types';
 
 const useLogin = (): UseLoginReturn => {
   const { t } = useTranslation();
-  const navigation = useNavigation();
+  const navigation = useNavigation<AuthRoutesStack>();
   const [generalError, setGeneralError] = useState<string | null>(null);
   const { login, isLoading, clearError } = useAuthStore();
 
@@ -47,7 +48,7 @@ const useLogin = (): UseLoginReturn => {
   );
 
   const handleForgotPassword = useCallback(() => {
-    navigation.navigate(AUTH_SCREENS.FORGOT_PASSWORD as never);
+    navigation.navigate(AUTH_SCREENS.FORGOT_PASSWORD);
   }, [navigation]);
 
   return {

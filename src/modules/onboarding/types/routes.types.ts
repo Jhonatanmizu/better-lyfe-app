@@ -1,5 +1,7 @@
 import { ONBOARDING_SCREENS } from '@modules/onboarding/constants';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import type { CompositeNavigationProp } from '@react-navigation/native';
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import type { RootParamList } from '@shared/types';
 
 export type OnboardingRoutesParamsList = {
   [ONBOARDING_SCREENS.TRACK_GOALS]: undefined;
@@ -9,3 +11,8 @@ export type OnboardingRoutesParamsList = {
 
 export type OnboardingRoutesStack =
   NativeStackNavigationProp<OnboardingRoutesParamsList>;
+
+export type OnboardingNavigationProp = CompositeNavigationProp<
+  NativeStackNavigationProp<OnboardingRoutesParamsList>,
+  NativeStackNavigationProp<RootParamList>
+>;

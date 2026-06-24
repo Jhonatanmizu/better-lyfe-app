@@ -6,11 +6,12 @@ import { useNavigation } from '@react-navigation/native';
 import { forgotPasswordSchema, ForgotPasswordFormData } from '@/modules/auth/schemas';
 import { useAuthStore } from '@/modules/auth/store';
 import { AUTH_SCREENS } from '@/modules/auth/constants';
+import type { AuthRoutesStack } from '@/modules/auth/types/routes.types';
 import { UseForgotPasswordReturn } from './ForgotPassword.types';
 
 const useForgotPassword = (): UseForgotPasswordReturn => {
   const { t } = useTranslation();
-  const navigation = useNavigation();
+  const navigation = useNavigation<AuthRoutesStack>();
   const [generalError, setGeneralError] = useState<string | null>(null);
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
   const { forgotPassword, isLoading, clearError } = useAuthStore();
@@ -48,7 +49,7 @@ const useForgotPassword = (): UseForgotPasswordReturn => {
   );
 
   const handleBackToSignIn = useCallback(() => {
-    navigation.navigate(AUTH_SCREENS.LOGIN as never);
+    navigation.navigate(AUTH_SCREENS.LOGIN);
   }, [navigation]);
 
   return {

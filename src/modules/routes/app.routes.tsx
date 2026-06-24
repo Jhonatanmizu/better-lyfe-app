@@ -3,7 +3,7 @@ import {
   createNativeStackNavigator,
   NativeStackNavigationProp,
 } from '@react-navigation/native-stack';
-import type { RoutesList } from '@shared/types';
+import type { RoutesList, RootParamList } from '@shared/types';
 
 import AuthRoutes from '@modules/auth/routes';
 import ExampleRoutes from '@modules/example/routes';
@@ -23,6 +23,8 @@ export type IAppStackParamsList = {
 };
 
 export type IAppStack = NativeStackNavigationProp<IAppStackParamsList>;
+
+export type AppNavigationProp = NativeStackNavigationProp<RootParamList>;
 
 const AppStack = createNativeStackNavigator<IAppStackParamsList>();
 

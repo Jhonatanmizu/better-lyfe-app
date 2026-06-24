@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react';
 import { CommonActions, useNavigation } from '@react-navigation/native';
 import { palette } from '@infrastructure/theme';
-import { OnboardingRoutesStack } from '@modules/onboarding/types/routes.types';
+import type { OnboardingNavigationProp } from '@modules/onboarding/types/routes.types';
 import { ONBOARDING_SCREENS, ONBOARDING_SEEN_KEY } from '@modules/onboarding/constants';
 import { UseTrackGoalsReturn } from './TrackGoals.types';
 import { useMMKVStorage } from '@/modules/shared/hooks';
@@ -13,7 +13,7 @@ const ICON_SIZE = 40;
 
 const useTrackGoals = (): UseTrackGoalsReturn => {
   const { setValue } = useMMKVStorage(ONBOARDING_SEEN_KEY, false);
-  const navigation = useNavigation<OnboardingRoutesStack>();
+  const navigation = useNavigation<OnboardingNavigationProp>();
   const [activeIndex] = useState<number>(INITIAL_ACTIVE_INDEX);
 
   const handleNextPress = useCallback(() => {

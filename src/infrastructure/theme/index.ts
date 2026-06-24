@@ -25,6 +25,7 @@ const palette = {
   // UI colors
   white: '#FFFFFF',
   inactive: '#E2E8F0',
+  error: '#F87171',
 
   // Legacy colors (kept for compatibility)
   purpleLight: '#8C6FF7',
@@ -52,6 +53,7 @@ const theme = createTheme({
     textMuted: palette.textMuted,
     white: palette.white,
     inactive: palette.inactive,
+    error: palette.error,
     // Legacy colors
     purpleLight: palette.purpleLight,
     purplePrimary: palette.purplePrimary,
@@ -112,9 +114,36 @@ const theme = createTheme({
       fontWeight: '500',
       color: 'textMuted',
     },
+    label: {
+      fontFamily: 'Inter',
+      fontSize: 13,
+      fontWeight: '500',
+      color: 'textPrimary',
+    },
+    input: {
+      fontFamily: 'Inter',
+      fontSize: 15,
+      color: 'textPrimary',
+    },
+    subtitle: {
+      fontFamily: 'Inter',
+      fontSize: 14,
+      fontWeight: '400',
+      color: 'textMuted',
+    },
+    link: {
+      fontFamily: 'Inter',
+      fontSize: 13,
+      fontWeight: '600',
+      color: 'primary',
+    },
+    caption: {
+      fontFamily: 'Inter',
+      fontSize: 12,
+      color: 'error',
+    },
     defaults: {
       fontFamily: 'Inter',
-      // We can define a default text variant here.
     },
   },
 });

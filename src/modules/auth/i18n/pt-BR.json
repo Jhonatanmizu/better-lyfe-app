@@ -1,0 +1,25 @@
+{
+  "screens": {
+    "Login": {
+      "welcomeBack": "Bem-vindo de volta",
+      "signInSubtitle": "Entre para continuar sua jornada",
+      "emailLabel": "E-mail",
+      "emailPlaceholder": "seu@email.com",
+      "passwordLabel": "Senha",
+      "passwordPlaceholder": "••••••••",
+      "forgotPassword": "Esqueceu a senha?",
+      "signInButton": "Entrar",
+      "noAccount": "Não tem uma conta?",
+      "signUp": "Cadastrar-se",
+      "loading": "Entrando...",
+      "errors": {
+        "emailRequired": "E-mail é obrigatório",
+        "emailInvalid": "Por favor, insira um e-mail válido",
+        "passwordRequired": "Senha é obrigatória",
+        "passwordMin": "A senha deve ter pelo menos 6 caracteres",
+        "loginFailed": "E-mail ou senha inválidos. Por favor, tente novamente.",
+        "networkError": "Erro de rede. Por favor, verifique sua conexão."
+      }
+    }
+  }
+}

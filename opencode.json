@@ -1,0 +1,10 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "agent": {
+    "component-impl": {
+      "description": "Senior React Native engineer for implementing components and screens. Focuses on quality, best practices, performance, UX, and UI.",
+      "mode": "all",
+      "color": "primary"
+    }
+  }
+}

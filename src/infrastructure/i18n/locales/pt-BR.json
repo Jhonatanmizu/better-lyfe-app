@@ -21,5 +21,34 @@
       "skip": "Pular",
       "getStarted": "Começar"
     }
+  },
+  "validation": {
+    "emailRequired": "E-mail é obrigatório",
+    "emailInvalid": "Por favor, insira um e-mail válido",
+    "passwordRequired": "Senha é obrigatória",
+    "passwordMin": "A senha deve ter pelo menos 6 caracteres",
+    "nameRequired": "Nome é obrigatório",
+    "nameMin": "O nome deve ter pelo menos 2 caracteres",
+    "confirmPasswordRequired": "Por favor, confirme sua senha",
+    "passwordsMustMatch": "As senhas devem coincidir"
+  },
+  "screens": {
+    "Login": {
+      "welcomeBack": "Bem-vindo de volta",
+      "signInSubtitle": "Entre para continuar sua jornada",
+      "emailLabel": "E-mail",
+      "emailPlaceholder": "seu@email.com",
+      "passwordLabel": "Senha",
+      "passwordPlaceholder": "••••••••",
+      "forgotPassword": "Esqueceu a senha?",
+      "signInButton": "Entrar",
+      "noAccount": "Não tem uma conta?",
+      "signUp": "Cadastrar-se",
+      "loading": "Entrando...",
+      "errors": {
+        "loginFailed": "E-mail ou senha inválidos. Por favor, tente novamente.",
+        "networkError": "Erro de rede. Por favor, verifique sua conexão."
+      }
+    }
   }
 }

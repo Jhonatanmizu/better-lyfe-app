@@ -21,5 +21,34 @@
       "skip": "Skip",
       "getStarted": "Get Started"
     }
+  },
+  "validation": {
+    "emailRequired": "Email is required",
+    "emailInvalid": "Please enter a valid email",
+    "passwordRequired": "Password is required",
+    "passwordMin": "Password must be at least 6 characters",
+    "nameRequired": "Name is required",
+    "nameMin": "Name must be at least 2 characters",
+    "confirmPasswordRequired": "Please confirm your password",
+    "passwordsMustMatch": "Passwords must match"
+  },
+  "screens": {
+    "Login": {
+      "welcomeBack": "Welcome back",
+      "signInSubtitle": "Sign in to continue your journey",
+      "emailLabel": "Email",
+      "emailPlaceholder": "your@email.com",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "••••••••",
+      "forgotPassword": "Forgot password?",
+      "signInButton": "Sign In",
+      "noAccount": "Don't have an account?",
+      "signUp": "Sign Up",
+      "loading": "Signing in...",
+      "errors": {
+        "loginFailed": "Invalid email or password. Please try again.",
+        "networkError": "Network error. Please check your connection."
+      }
+    }
   }
 }

@@ -49,6 +49,20 @@
         "loginFailed": "E-mail ou senha inválidos. Por favor, tente novamente.",
         "networkError": "Erro de rede. Por favor, verifique sua conexão."
       }
+    },
+    "ForgotPassword": {
+      "title": "Esqueceu a senha?",
+      "subtitle": "Insira seu e-mail e enviaremos um link de redefinição.",
+      "emailLabel": "E-mail",
+      "emailPlaceholder": "seu@email.com",
+      "sendResetLinkButton": "Enviar Link de Redefinição",
+      "backToSignIn": "Voltar para o Login",
+      "loading": "Enviando...",
+      "successMessage": "Link de redefinição enviado! Verifique seu e-mail.",
+      "errors": {
+        "sendFailed": "Falha ao enviar link. Por favor, tente novamente.",
+        "networkError": "Erro de rede. Por favor, verifique sua conexão."
+      }
     }
   }
 }

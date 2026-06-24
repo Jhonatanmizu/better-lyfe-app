@@ -49,6 +49,20 @@
         "loginFailed": "Invalid email or password. Please try again.",
         "networkError": "Network error. Please check your connection."
       }
+    },
+    "ForgotPassword": {
+      "title": "Forgot password?",
+      "subtitle": "Enter your email and we'll send you a reset link.",
+      "emailLabel": "Email",
+      "emailPlaceholder": "your@email.com",
+      "sendResetLinkButton": "Send Reset Link",
+      "backToSignIn": "Back to Sign In",
+      "loading": "Sending...",
+      "successMessage": "Password reset link sent! Check your email.",
+      "errors": {
+        "sendFailed": "Failed to send reset link. Please try again.",
+        "networkError": "Network error. Please check your connection."
+      }
     }
   }
 }

@@ -3,7 +3,7 @@ import type { RoutesList } from '@shared/types';
 import type { AuthRoutesParamsList } from '@modules/auth/types/routes.types';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import { Login } from '@modules/auth/screens';
+import { Login, ForgotPassword } from '@modules/auth/screens';
 import { AUTH_SCREENS } from '@modules/auth/constants';
 
 export type { AuthRoutesStack } from '@modules/auth/types/routes.types';
@@ -12,6 +12,10 @@ export const authRoutesList: RoutesList<AuthRoutesParamsList>[] = [
   {
     name: AUTH_SCREENS.LOGIN,
     component: Login,
+  },
+  {
+    name: AUTH_SCREENS.FORGOT_PASSWORD,
+    component: ForgotPassword,
   },
 ];
 

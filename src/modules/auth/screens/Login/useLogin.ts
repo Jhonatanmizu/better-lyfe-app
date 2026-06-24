@@ -2,12 +2,15 @@ import { useCallback, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useTranslation } from 'react-i18next';
+import { useNavigation } from '@react-navigation/native';
 import { loginSchema, LoginFormData } from '@/modules/auth/schemas';
 import { useAuthStore } from '@/modules/auth/store';
+import { AUTH_SCREENS } from '@/modules/auth/constants';
 import { UseLoginReturn } from './Login.types';
 
 const useLogin = (): UseLoginReturn => {
   const { t } = useTranslation();
+  const navigation = useNavigation();
   const [generalError, setGeneralError] = useState<string | null>(null);
   const { login, isLoading, clearError } = useAuthStore();
 
@@ -43,11 +46,16 @@ const useLogin = (): UseLoginReturn => {
     [login, clearError, t],
   );
 
+  const handleForgotPassword = useCallback(() => {
+    navigation.navigate(AUTH_SCREENS.FORGOT_PASSWORD as never);
+  }, [navigation]);
+
   return {
     form,
     onSubmit,
     isLoading,
     generalError,
+    handleForgotPassword,
   };
 };
 

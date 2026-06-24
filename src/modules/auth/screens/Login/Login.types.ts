@@ -6,6 +6,7 @@ export interface UseLoginReturn {
   onSubmit: (data: LoginFormData) => Promise<void>;
   isLoading: boolean;
   generalError: string | null;
+  handleForgotPassword: () => void;
 }
 
 export interface LoginScreenProps {

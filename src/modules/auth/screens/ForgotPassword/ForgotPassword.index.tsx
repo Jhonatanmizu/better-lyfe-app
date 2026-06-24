@@ -7,16 +7,23 @@ import {
   View,
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
-import { Target } from 'lucide-react-native';
+import { Lock, ArrowLeft } from 'lucide-react-native';
 import { Box, Text, KeyboardAvoidingView } from '@shared/components';
 import { palette } from '@/infrastructure/theme';
-import useLogin from './useLogin';
+import useForgotPassword from './useForgotPassword';
 import useStyles from './useStyles';
 
-const Login = (): React.JSX.Element => {
+const ForgotPassword = (): React.JSX.Element => {
   const { t } = useTranslation();
   const styles = useStyles();
-  const { form, onSubmit, isLoading, generalError, handleForgotPassword } = useLogin();
+  const {
+    form,
+    onSubmit,
+    isLoading,
+    generalError,
+    isSuccess,
+    handleBackToSignIn,
+  } = useForgotPassword();
 
   const {
     register,
@@ -27,7 +34,6 @@ const Login = (): React.JSX.Element => {
   } = form;
 
   const emailValue = watch('email');
-  const passwordValue = watch('password');
 
   return (
     <KeyboardAvoidingView>
@@ -39,24 +45,32 @@ const Login = (): React.JSX.Element => {
         >
           <Box style={styles.logoSection}>
             <View style={styles.logoCircle}>
-              <Target size={32} color={palette.white} style={styles.logoIcon} />
+              <Lock
+                size={36}
+                color={palette.mintGreen}
+                style={styles.logoIcon}
+              />
             </View>
-            <Text variant="title">betterlyfe</Text>
           </Box>
 
           <Box style={styles.headerSection}>
-            <Text variant="title" style={styles.welcomeTitle}>
-              {t('screens.Login.welcomeBack')}
+            <Text variant="title">
+              {t('screens.ForgotPassword.title')}
             </Text>
-            <Text variant="subtitle">{t('screens.Login.signInSubtitle')}</Text>
+            <Text variant="subtitle">
+              {t('screens.ForgotPassword.subtitle')}
+            </Text>
           </Box>
 
+          {/* Form Section */}
           <Box style={styles.formSection}>
             <Box style={styles.inputGroup}>
-              <Text variant="label">{t('screens.Login.emailLabel')}</Text>
+              <Text variant="label">
+                {t('screens.ForgotPassword.emailLabel')}
+              </Text>
               <TextInput
                 style={[styles.input, errors.email && styles.inputError]}
-                placeholder={t('screens.Login.emailPlaceholder')}
+                placeholder={t('screens.ForgotPassword.emailPlaceholder')}
                 placeholderTextColor={palette.textMuted}
                 keyboardType="email-address"
                 autoCapitalize="none"
@@ -67,7 +81,7 @@ const Login = (): React.JSX.Element => {
                   setValue('email', value, { shouldValidate: true })
                 }
                 {...register('email')}
-                accessibilityLabel={t('screens.Login.emailLabel')}
+                accessibilityLabel={t('screens.ForgotPassword.emailLabel')}
                 accessibilityRole="text"
               />
               {errors.email && (
@@ -76,42 +90,9 @@ const Login = (): React.JSX.Element => {
                 </Text>
               )}
             </Box>
-
-            <Box style={styles.inputGroup}>
-              <Text variant="label">{t('screens.Login.passwordLabel')}</Text>
-              <TextInput
-                style={[styles.input, errors.password && styles.inputError]}
-                placeholder={t('screens.Login.passwordPlaceholder')}
-                placeholderTextColor={palette.textMuted}
-                secureTextEntry
-                autoCapitalize="none"
-                editable={!isLoading}
-                value={passwordValue}
-                onChangeText={(value: string) =>
-                  setValue('password', value, { shouldValidate: true })
-                }
-                {...register('password')}
-                accessibilityLabel={t('screens.Login.passwordLabel')}
-                accessibilityRole="text"
-              />
-              {errors.password && (
-                <Text variant="caption" style={styles.errorText}>
-                  {errors.password.message}
-                </Text>
-              )}
-            </Box>
-
-            <Box style={styles.forgotPasswordRow}>
-              <TouchableOpacity
-                onPress={handleForgotPassword}
-                accessibilityLabel={t('screens.Login.forgotPassword')}
-                accessibilityRole="button"
-              >
-                <Text variant="link">{t('screens.Login.forgotPassword')}</Text>
-              </TouchableOpacity>
-            </Box>
           </Box>
 
+          {/* General Error */}
           {generalError && (
             <Box style={styles.generalErrorContainer}>
               <Text variant="caption" style={styles.generalErrorText}>
@@ -120,32 +101,51 @@ const Login = (): React.JSX.Element => {
             </Box>
           )}
 
+          {/* Success Message */}
+          {isSuccess && (
+            <Box style={styles.successContainer}>
+              <Text variant="caption" style={styles.successText}>
+                {t('screens.ForgotPassword.successMessage')}
+              </Text>
+            </Box>
+          )}
+
+          {/* Send Reset Link Button */}
           <Box style={styles.buttonSection}>
             <TouchableOpacity
               style={[
-                styles.signInButton,
-                isLoading && styles.signInButtonDisabled,
+                styles.sendButton,
+                isLoading && styles.sendButtonDisabled,
               ]}
               onPress={handleSubmit(onSubmit)}
               disabled={isLoading}
-              accessibilityLabel={t('screens.Login.signInButton')}
+              accessibilityLabel={t(
+                'screens.ForgotPassword.sendResetLinkButton',
+              )}
               accessibilityRole="button"
             >
               {isLoading ? (
                 <ActivityIndicator color={palette.white} size="small" />
               ) : (
-                <Text variant="button">{t('screens.Login.signInButton')}</Text>
+                <Text variant="button">
+                  {t('screens.ForgotPassword.sendResetLinkButton')}
+                </Text>
               )}
             </TouchableOpacity>
           </Box>
 
-          <Box style={styles.signUpSection}>
-            <Text variant="subtitle">{t('screens.Login.noAccount')} </Text>
+          {/* Back to Sign In */}
+          <Box style={styles.backSection}>
             <TouchableOpacity
-              accessibilityLabel={t('screens.Login.signUp')}
+              style={styles.backButton}
+              onPress={handleBackToSignIn}
+              accessibilityLabel={t('screens.ForgotPassword.backToSignIn')}
               accessibilityRole="button"
             >
-              <Text variant="link">{t('screens.Login.signUp')}</Text>
+              <ArrowLeft size={16} color={palette.textMuted} />
+              <Text variant="subtitle" style={styles.backText}>
+                {t('screens.ForgotPassword.backToSignIn')}
+              </Text>
             </TouchableOpacity>
           </Box>
         </ScrollView>
@@ -154,4 +154,4 @@ const Login = (): React.JSX.Element => {
   );
 };
 
-export default Login;
+export default ForgotPassword;

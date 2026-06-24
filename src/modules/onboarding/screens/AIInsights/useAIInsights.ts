@@ -2,7 +2,7 @@ import { useCallback, useState } from 'react';
 import { CommonActions, useNavigation } from '@react-navigation/native';
 import { palette } from '@infrastructure/theme';
 import type { OnboardingNavigationProp } from '@modules/onboarding/types/routes.types';
-import { ONBOARDING_SCREENS, ONBOARDING_SEEN_KEY } from '@modules/onboarding/constants';
+import { ONBOARDING_SEEN_KEY } from '@modules/onboarding/constants';
 import { UseAIInsightsReturn } from './AIInsights.types';
 import { useMMKVStorage } from '@/modules/shared/hooks';
 import { EXAMPLE_ROUTES } from '@/modules/example/constants';

@@ -1,4 +1,15 @@
 {
+  "shared": {
+    "errorState": {
+      "title": "Something went wrong",
+      "message": "An unexpected error occurred. Please try again.",
+      "retryLabel": "Try Again"
+    },
+    "emptyState": {
+      "title": "Nothing here yet",
+      "message": "Start by adding your first item."
+    }
+  },
   "example": {
     "screenTitle": "Example Screen"
   },

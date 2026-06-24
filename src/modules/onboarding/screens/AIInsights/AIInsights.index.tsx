@@ -1,9 +1,14 @@
 import React from 'react';
 import { TouchableOpacity, View } from 'react-native';
-import { Button } from 'react-native-paper';
 import { Sparkles } from 'lucide-react-native';
 import { useTranslation } from 'react-i18next';
-import { Box, Text } from '@shared/components';
+import { Box, Text, Button } from '@shared/components';
+import {
+  CIRCLE_OUTER_SIZE,
+  CIRCLE_MIDDLE_SIZE,
+  CIRCLE_INNER_SIZE,
+  ICON_SIZE,
+} from '@/modules/onboarding/constants/responsive';
 import useAIInsights from './useAIInsights';
 import useStyles from './useStyles';
 
@@ -32,42 +37,61 @@ const AIInsights = (): React.JSX.Element => {
   };
 
   return (
-    <Box style={styles.container}>
+    <Box flex={1} backgroundColor="mainBackground">
       <TouchableOpacity style={styles.skipContainer} onPress={handleSkipPress}>
         <Text variant="skip">{t('onboarding.aiInsights.skip')}</Text>
       </TouchableOpacity>
 
-      <Box style={styles.iconSection}>
-        <View style={styles.circleOuter}>
-          <View style={styles.circleMiddle}>
-            <View style={styles.circleInner}>
-              <Sparkles size={iconSize} color={iconColor} style={styles.icon} />
-            </View>
-          </View>
-        </View>
+      <Box flex={1} justifyContent="center" alignItems="center" padding="xxl">
+        <Box
+          width={CIRCLE_OUTER_SIZE}
+          height={CIRCLE_OUTER_SIZE}
+          style={{ borderRadius: CIRCLE_OUTER_SIZE / 2 }}
+          backgroundColor="violetLighter"
+          justifyContent="center"
+          alignItems="center"
+        >
+          <Box
+            width={CIRCLE_MIDDLE_SIZE}
+            height={CIRCLE_MIDDLE_SIZE}
+            style={{ borderRadius: CIRCLE_MIDDLE_SIZE / 2 }}
+            backgroundColor="violetLight"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Box
+              width={CIRCLE_INNER_SIZE}
+              height={CIRCLE_INNER_SIZE}
+              style={{ borderRadius: CIRCLE_INNER_SIZE / 2 }}
+              backgroundColor="primary"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Sparkles size={iconSize} color={iconColor} style={{ width: ICON_SIZE, height: ICON_SIZE }} />
+            </Box>
+          </Box>
+        </Box>
       </Box>
 
-      <Box style={styles.textSection}>
-        <Text variant="title" style={styles.title}>
+      <Box alignItems="center" paddingHorizontal="xxl" gap="m">
+        <Text variant="title" textAlign="center">
           {t('onboarding.aiInsights.title')}
         </Text>
-        <Text variant="description" style={styles.description}>
+        <Text variant="description" textAlign="center">
           {t('onboarding.aiInsights.description')}
         </Text>
       </Box>
 
-      <Box style={styles.paginationContainer}>{renderDots()}</Box>
+      <Box height={44} flexDirection="row" justifyContent="center" alignItems="center" gap="s">
+        {renderDots()}
+      </Box>
 
-      <Box style={styles.buttonContainer}>
+      <Box paddingHorizontal="l" paddingBottom="xl">
         <Button
-          mode="contained"
+          label={t('onboarding.aiInsights.getStarted')}
           onPress={handleGetStartedPress}
-          style={styles.button}
-          labelStyle={styles.buttonLabel}
-          contentStyle={styles.buttonContent}
-        >
-          {t('onboarding.aiInsights.getStarted')}
-        </Button>
+          size="lg"
+        />
       </Box>
     </Box>
   );

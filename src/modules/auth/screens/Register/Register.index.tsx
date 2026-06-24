@@ -3,15 +3,15 @@ import {
   ScrollView,
   TouchableOpacity,
   TextInput,
-  ActivityIndicator,
-  View,
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { UserPlus } from 'lucide-react-native';
-import { Box, Text, KeyboardAvoidingView } from '@shared/components';
-import { palette } from '@/infrastructure/theme';
+import { Box, Text, KeyboardAvoidingView, Button } from '@shared/components';
+import { palette, normalize, moderateScale } from '@/infrastructure/theme';
 import useRegister from './useRegister';
 import useStyles from './useStyles';
+
+const LOGO_SIZE = normalize(64);
 
 const Register = (): React.JSX.Element => {
   const { t } = useTranslation();
@@ -40,28 +40,42 @@ const Register = (): React.JSX.Element => {
 
   return (
     <KeyboardAvoidingView>
-      <Box style={styles.container}>
+      <Box flex={1} backgroundColor="mainBackground">
         <ScrollView
           contentContainerStyle={styles.scrollContent}
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator={false}
         >
-          <Box style={styles.logoSection}>
-            <View style={styles.logoCircle}>
+          {/* Logo Section */}
+          <Box
+            alignItems="center"
+            paddingBottom="l"
+            style={{ paddingTop: moderateScale(60), gap: moderateScale(12) }}
+          >
+            <Box
+              width={LOGO_SIZE}
+              height={LOGO_SIZE}
+              borderRadius="full"
+              backgroundColor="primary"
+              justifyContent="center"
+              alignItems="center"
+            >
               <UserPlus size={32} color={palette.white} style={styles.logoIcon} />
-            </View>
+            </Box>
             <Text variant="title">betterlyfe</Text>
           </Box>
 
-          <Box style={styles.headerSection}>
-            <Text variant="title" style={styles.welcomeTitle}>
+          {/* Header Section */}
+          <Box paddingHorizontal="xxl" gap="xs">
+            <Text variant="title">
               {t('screens.Register.title')}
             </Text>
             <Text variant="subtitle">{t('screens.Register.subtitle')}</Text>
           </Box>
 
-          <Box style={styles.formSection}>
-            <Box style={styles.inputGroup}>
+          {/* Form Section */}
+          <Box paddingHorizontal="xxl" paddingTop="xl" gap="l">
+            <Box gap="s">
               <Text variant="label">{t('screens.Register.firstNameLabel')}</Text>
               <TextInput
                 style={[styles.input, errors.firstName && styles.inputError]}
@@ -79,13 +93,13 @@ const Register = (): React.JSX.Element => {
                 accessibilityRole="text"
               />
               {errors.firstName && (
-                <Text variant="caption" style={styles.errorText}>
+                <Text variant="caption" marginTop="xs">
                   {errors.firstName.message}
                 </Text>
               )}
             </Box>
 
-            <Box style={styles.inputGroup}>
+            <Box gap="s">
               <Text variant="label">{t('screens.Register.lastNameLabel')}</Text>
               <TextInput
                 style={[styles.input, errors.lastName && styles.inputError]}
@@ -103,13 +117,13 @@ const Register = (): React.JSX.Element => {
                 accessibilityRole="text"
               />
               {errors.lastName && (
-                <Text variant="caption" style={styles.errorText}>
+                <Text variant="caption" marginTop="xs">
                   {errors.lastName.message}
                 </Text>
               )}
             </Box>
 
-            <Box style={styles.inputGroup}>
+            <Box gap="s">
               <Text variant="label">{t('screens.Register.emailLabel')}</Text>
               <TextInput
                 style={[styles.input, errors.email && styles.inputError]}
@@ -128,13 +142,13 @@ const Register = (): React.JSX.Element => {
                 accessibilityRole="text"
               />
               {errors.email && (
-                <Text variant="caption" style={styles.errorText}>
+                <Text variant="caption" marginTop="xs">
                   {errors.email.message}
                 </Text>
               )}
             </Box>
 
-            <Box style={styles.inputGroup}>
+            <Box gap="s">
               <Text variant="label">{t('screens.Register.passwordLabel')}</Text>
               <TextInput
                 style={[styles.input, errors.password && styles.inputError]}
@@ -152,13 +166,13 @@ const Register = (): React.JSX.Element => {
                 accessibilityRole="text"
               />
               {errors.password && (
-                <Text variant="caption" style={styles.errorText}>
+                <Text variant="caption" marginTop="xs">
                   {errors.password.message}
                 </Text>
               )}
             </Box>
 
-            <Box style={styles.inputGroup}>
+            <Box gap="s">
               <Text variant="label">{t('screens.Register.confirmPasswordLabel')}</Text>
               <TextInput
                 style={[styles.input, errors.confirmPassword && styles.inputError]}
@@ -176,41 +190,42 @@ const Register = (): React.JSX.Element => {
                 accessibilityRole="text"
               />
               {errors.confirmPassword && (
-                <Text variant="caption" style={styles.errorText}>
+                <Text variant="caption" marginTop="xs">
                   {errors.confirmPassword.message}
                 </Text>
               )}
             </Box>
           </Box>
 
+          {/* General Error */}
           {generalError && (
-            <Box style={styles.generalErrorContainer}>
-              <Text variant="caption" style={styles.generalErrorText}>
+            <Box paddingHorizontal="xxl" paddingTop="s">
+              <Text variant="caption" textAlign="center">
                 {generalError}
               </Text>
             </Box>
           )}
 
-          <Box style={styles.buttonSection}>
-            <TouchableOpacity
-              style={[
-                styles.signUpButton,
-                isLoading && styles.signUpButtonDisabled,
-              ]}
+          {/* Submit Button */}
+          <Box paddingHorizontal="xxl" paddingTop="xxl">
+            <Button
+              label={t('screens.Register.signUpButton')}
               onPress={handleSubmit(onSubmit)}
+              loading={isLoading}
               disabled={isLoading}
               accessibilityLabel={t('screens.Register.signUpButton')}
-              accessibilityRole="button"
-            >
-              {isLoading ? (
-                <ActivityIndicator color={palette.white} size="small" />
-              ) : (
-                <Text variant="button">{t('screens.Register.signUpButton')}</Text>
-              )}
-            </TouchableOpacity>
+            />
           </Box>
 
-          <Box style={styles.signInSection}>
+          {/* Sign In Link */}
+          <Box
+            justifyContent="center"
+            alignItems="center"
+            paddingBottom="xxl"
+            paddingTop="l"
+            flexDirection="row"
+            flexWrap="wrap"
+          >
             <Text variant="subtitle">{t('screens.Register.alreadyHaveAccount')} </Text>
             <TouchableOpacity
               onPress={handleBackToSignIn}

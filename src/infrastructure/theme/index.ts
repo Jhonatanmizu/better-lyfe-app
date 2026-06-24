@@ -32,6 +32,12 @@ const palette = {
   inactive: '#E2E8F0',
   error: '#F87171',
 
+  // Environment banner colors
+  errorLight: '#FEE2E2',
+  envDevelopment: '#3B82F6',
+  envStaging: '#F97316',
+  envProduction: '#22C55E',
+
   // Legacy colors (kept for compatibility)
   purpleLight: '#8C6FF7',
   purplePrimary: '#5A31F4',
@@ -59,6 +65,10 @@ const theme = createTheme({
     white: palette.white,
     inactive: palette.inactive,
     error: palette.error,
+    errorLight: palette.errorLight,
+    envDevelopment: palette.envDevelopment,
+    envStaging: palette.envStaging,
+    envProduction: palette.envProduction,
     // Legacy colors
     purpleLight: palette.purpleLight,
     purplePrimary: palette.purplePrimary,

@@ -3,6 +3,7 @@ import { ThemeProvider } from '@shopify/restyle';
 import { StatusBar, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { PaperProvider, MD3LightTheme, MD3Theme } from 'react-native-paper';
+import Toast from 'react-native-toast-message';
 import theme, { palette } from '@/infrastructure/theme';
 import { EnvironmentBanner } from './EnvironmentBanner';
 
@@ -32,11 +33,16 @@ const AppWrapper = ({ children }: Props) => {
   return (
     <ThemeProvider theme={theme}>
       <PaperProvider theme={paperTheme}>
-        <StatusBar barStyle="dark-content" animated translucent />
+        <StatusBar
+          barStyle="light-content"
+          translucent
+          backgroundColor={palette.greenDark}
+        />
         <SafeAreaView style={styles.container} testID="test_safe_app_wrapper">
-          {/* <EnvironmentBanner /> */}
+          <EnvironmentBanner />
           {children}
         </SafeAreaView>
+        <Toast />
       </PaperProvider>
     </ThemeProvider>
   );

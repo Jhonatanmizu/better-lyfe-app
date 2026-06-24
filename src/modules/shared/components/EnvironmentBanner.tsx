@@ -1,47 +1,44 @@
 import React from 'react';
-import { View, Text, StyleSheet, ViewStyle } from 'react-native';
 import { ENVIRONMENT } from '@env';
-import { moderateScale } from '@/infrastructure/theme';
+import { Box } from './Box';
+import { Text } from './Text';
+import { palette } from '@/infrastructure/theme';
 
 enum ENVIRONMENTS {
   DEV = 'development',
   STAGING = 'staging',
   PROD = 'production',
 }
-const EnvironmentBanner = () => {
-  const env = ENVIRONMENT;
-  const bannerColor =
-    env === 'development' ? 'blue' : env === 'staging' ? 'orange' : 'green';
-  const bannerText =
-    env === 'development'
-      ? 'Development'
-      : env === 'staging'
-      ? 'Staging'
-      : 'Production';
 
-  const customStyles: ViewStyle = {
-    ...styles.container,
-    backgroundColor: bannerColor,
-  };
+interface EnvConfig {
+  backgroundColor: string;
+  label: string;
+}
+
+const ENV_CONFIG: Record<string, EnvConfig> = {
+  [ENVIRONMENTS.DEV]: { backgroundColor: palette.envDevelopment, label: 'Development' },
+  [ENVIRONMENTS.STAGING]: { backgroundColor: palette.envStaging, label: 'Staging' },
+  [ENVIRONMENTS.PROD]: { backgroundColor: palette.envProduction, label: 'Production' },
+};
+
+const EnvironmentBanner = React.memo(() => {
+  const config = ENV_CONFIG[ENVIRONMENT] || ENV_CONFIG[ENVIRONMENTS.DEV];
 
   if (ENVIRONMENT === ENVIRONMENTS.PROD) return null;
 
   return (
-    <View style={customStyles}>
-      <Text style={styles.text}>{bannerText}</Text>
-    </View>
+    <Box
+      style={{ backgroundColor: config.backgroundColor }}
+      padding="s"
+      alignItems="center"
+    >
+      <Text color="white" style={{ fontWeight: 'bold' }}>
+        {config.label}
+      </Text>
+    </Box>
   );
-};
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: 'blue',
-    padding: moderateScale(10),
-  },
-  text: {
-    color: 'white',
-    fontWeight: 'bold',
-  },
 });
+
+EnvironmentBanner.displayName = 'EnvironmentBanner';
 
 export { EnvironmentBanner };

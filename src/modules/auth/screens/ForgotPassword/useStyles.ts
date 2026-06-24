@@ -49,6 +49,7 @@ const useStyles = () => {
       borderColor: palette.inactive,
       paddingHorizontal: moderateScale(16),
       paddingVertical: moderateScale(12),
+      color: palette.textPrimary,
     },
     inputError: {
       borderColor: palette.error,

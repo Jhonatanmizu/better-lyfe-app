@@ -1,5 +1,11 @@
 import { StyleSheet } from 'react-native';
-import { palette, normalize, moderateScale, scaleFontSize, verticalScale } from '@/infrastructure/theme';
+import {
+  palette,
+  normalize,
+  moderateScale,
+  scaleFontSize,
+  verticalScale,
+} from '@/infrastructure/theme';
 
 const LOGO_SIZE = normalize(64);
 const ICON_SIZE = normalize(32);
@@ -9,6 +15,7 @@ const useStyles = () => {
     container: {
       flex: 1,
       backgroundColor: palette.background,
+      paddingBottom: moderateScale(80),
     },
     scrollContent: {
       flexGrow: 1,
@@ -54,6 +61,7 @@ const useStyles = () => {
       borderColor: palette.inactive,
       paddingHorizontal: moderateScale(16),
       paddingVertical: moderateScale(12),
+      color: palette.textPrimary,
     },
     inputError: {
       borderColor: palette.error,

@@ -3,56 +3,55 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useTranslation } from 'react-i18next';
 import { useNavigation } from '@react-navigation/native';
-import { loginSchema, LoginFormData } from '@/modules/auth/schemas';
+import { registerSchema, RegisterFormData } from '@/modules/auth/schemas';
 import { useAuthStore } from '@/modules/auth/store';
 import { AUTH_SCREENS } from '@/modules/auth/constants';
 import type { AuthRoutesStack } from '@/modules/auth/types/routes.types';
-import { UseLoginReturn } from './Login.types';
+import { UseRegisterReturn } from './Register.types';
 
-const useLogin = (): UseLoginReturn => {
+const useRegister = (): UseRegisterReturn => {
   const { t } = useTranslation();
   const navigation = useNavigation<AuthRoutesStack>();
   const [generalError, setGeneralError] = useState<string | null>(null);
-  const { login, isLoading, clearError } = useAuthStore();
+  const { register, isLoading, clearError } = useAuthStore();
 
-  const form = useForm<LoginFormData>({
-    resolver: yupResolver(loginSchema),
+  const form = useForm<RegisterFormData>({
+    resolver: yupResolver(registerSchema),
     defaultValues: {
+      firstName: '',
+      lastName: '',
       email: '',
       password: '',
+      confirmPassword: '',
     },
     mode: 'onBlur',
   });
 
   const onSubmit = useCallback(
-    async (data: LoginFormData): Promise<void> => {
+    async (data: RegisterFormData): Promise<void> => {
       setGeneralError(null);
       clearError();
 
       try {
-        await login(data.email, data.password);
+        await register(data.firstName, data.lastName, data.email, data.password);
       } catch (error: unknown) {
-        let errorMessage = t('screens.Login.errors.loginFailed');
+        let errorMessage = t('screens.Register.errors.registerFailed');
         if (error instanceof Error) {
           const axiosError = error as { response?: { status?: number } };
-          if (axiosError.response?.status === 401) {
-            errorMessage = t('screens.Login.errors.loginFailed');
+          if (axiosError.response?.status === 409) {
+            errorMessage = t('screens.Register.errors.registerFailed');
           } else {
-            errorMessage = t('screens.Login.errors.networkError');
+            errorMessage = t('screens.Register.errors.networkError');
           }
         }
         setGeneralError(errorMessage);
       }
     },
-    [login, clearError, t],
+    [register, clearError, t],
   );
 
-  const handleForgotPassword = useCallback(() => {
-    navigation.navigate(AUTH_SCREENS.FORGOT_PASSWORD);
-  }, [navigation]);
-
-  const handleSignUp = useCallback(() => {
-    navigation.navigate(AUTH_SCREENS.REGISTER);
+  const handleBackToSignIn = useCallback(() => {
+    navigation.navigate(AUTH_SCREENS.LOGIN);
   }, [navigation]);
 
   return {
@@ -60,9 +59,8 @@ const useLogin = (): UseLoginReturn => {
     onSubmit,
     isLoading,
     generalError,
-    handleForgotPassword,
-    handleSignUp,
+    handleBackToSignIn,
   };
 };
 
-export default useLogin;
+export default useRegister;

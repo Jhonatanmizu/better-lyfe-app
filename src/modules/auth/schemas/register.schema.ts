@@ -2,17 +2,22 @@ import * as yup from 'yup';
 import i18n from '@/infrastructure/i18n';
 
 export interface RegisterFormData {
-  name: string;
+  firstName: string;
+  lastName: string;
   email: string;
   password: string;
   confirmPassword: string;
 }
 
 export const registerSchema = yup.object<RegisterFormData>().shape({
-  name: yup
+  firstName: yup
     .string()
-    .required(i18n.t('validation.nameRequired'))
-    .min(2, i18n.t('validation.nameMin')),
+    .required(i18n.t('validation.firstNameRequired'))
+    .min(2, i18n.t('validation.firstNameMin')),
+  lastName: yup
+    .string()
+    .required(i18n.t('validation.lastNameRequired'))
+    .min(2, i18n.t('validation.lastNameMin')),
   email: yup
     .string()
     .required(i18n.t('validation.emailRequired'))

@@ -27,8 +27,10 @@
     "emailInvalid": "Please enter a valid email",
     "passwordRequired": "Password is required",
     "passwordMin": "Password must be at least 6 characters",
-    "nameRequired": "Name is required",
-    "nameMin": "Name must be at least 2 characters",
+    "firstNameRequired": "First name is required",
+    "firstNameMin": "First name must be at least 2 characters",
+    "lastNameRequired": "Last name is required",
+    "lastNameMin": "Last name must be at least 2 characters",
     "confirmPasswordRequired": "Please confirm your password",
     "passwordsMustMatch": "Passwords must match"
   },
@@ -61,6 +63,28 @@
       "successMessage": "Password reset link sent! Check your email.",
       "errors": {
         "sendFailed": "Failed to send reset link. Please try again.",
+        "networkError": "Network error. Please check your connection."
+      }
+    },
+    "Register": {
+      "title": "Create account",
+      "subtitle": "Sign up to start your journey",
+      "firstNameLabel": "First Name",
+      "firstNamePlaceholder": "Your first name",
+      "lastNameLabel": "Last Name",
+      "lastNamePlaceholder": "Your last name",
+      "emailLabel": "Email",
+      "emailPlaceholder": "your@email.com",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "••••••••",
+      "confirmPasswordLabel": "Confirm Password",
+      "confirmPasswordPlaceholder": "••••••••",
+      "signUpButton": "Sign Up",
+      "alreadyHaveAccount": "Already have an account?",
+      "signIn": "Sign In",
+      "loading": "Creating account...",
+      "errors": {
+        "registerFailed": "Registration failed. Please try again.",
         "networkError": "Network error. Please check your connection."
       }
     }

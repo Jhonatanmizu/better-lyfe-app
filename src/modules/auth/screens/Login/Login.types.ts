@@ -9,6 +9,7 @@ export interface UseLoginReturn {
   isLoading: boolean;
   generalError: string | null;
   handleForgotPassword: () => void;
+  handleSignUp: () => void;
 }
 
 export type LoginScreenProps = NativeStackScreenProps<AuthRoutesParamsList, 'Login'>;

@@ -34,7 +34,7 @@ const AppWrapper = ({ children }: Props) => {
       <PaperProvider theme={paperTheme}>
         <StatusBar barStyle="dark-content" animated translucent />
         <SafeAreaView style={styles.container} testID="test_safe_app_wrapper">
-          <EnvironmentBanner />
+          {/* <EnvironmentBanner /> */}
           {children}
         </SafeAreaView>
       </PaperProvider>

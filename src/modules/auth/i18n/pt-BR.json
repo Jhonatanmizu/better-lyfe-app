@@ -20,6 +20,28 @@
         "loginFailed": "E-mail ou senha inválidos. Por favor, tente novamente.",
         "networkError": "Erro de rede. Por favor, verifique sua conexão."
       }
+    },
+    "Register": {
+      "title": "Criar conta",
+      "subtitle": "Cadastre-se para começar sua jornada",
+      "firstNameLabel": "Nome",
+      "firstNamePlaceholder": "Seu nome",
+      "lastNameLabel": "Sobrenome",
+      "lastNamePlaceholder": "Seu sobrenome",
+      "emailLabel": "E-mail",
+      "emailPlaceholder": "seu@email.com",
+      "passwordLabel": "Senha",
+      "passwordPlaceholder": "••••••••",
+      "confirmPasswordLabel": "Confirmar Senha",
+      "confirmPasswordPlaceholder": "••••••••",
+      "signUpButton": "Cadastrar-se",
+      "alreadyHaveAccount": "Já tem uma conta?",
+      "signIn": "Entrar",
+      "loading": "Criando conta...",
+      "errors": {
+        "registerFailed": "Falha no cadastro. Por favor, tente novamente.",
+        "networkError": "Erro de rede. Por favor, verifique sua conexão."
+      }
     }
   }
 }

@@ -16,7 +16,7 @@ import useStyles from './useStyles';
 const Login = (): React.JSX.Element => {
   const { t } = useTranslation();
   const styles = useStyles();
-  const { form, onSubmit, isLoading, generalError, handleForgotPassword } = useLogin();
+  const { form, onSubmit, isLoading, generalError, handleForgotPassword, handleSignUp } = useLogin();
 
   const {
     register,
@@ -142,6 +142,7 @@ const Login = (): React.JSX.Element => {
           <Box style={styles.signUpSection}>
             <Text variant="subtitle">{t('screens.Login.noAccount')} </Text>
             <TouchableOpacity
+              onPress={handleSignUp}
               accessibilityLabel={t('screens.Login.signUp')}
               accessibilityRole="button"
             >

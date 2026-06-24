@@ -20,6 +20,28 @@
         "loginFailed": "Invalid email or password. Please try again.",
         "networkError": "Network error. Please check your connection."
       }
+    },
+    "Register": {
+      "title": "Create account",
+      "subtitle": "Sign up to start your journey",
+      "firstNameLabel": "First Name",
+      "firstNamePlaceholder": "Your first name",
+      "lastNameLabel": "Last Name",
+      "lastNamePlaceholder": "Your last name",
+      "emailLabel": "Email",
+      "emailPlaceholder": "your@email.com",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "••••••••",
+      "confirmPasswordLabel": "Confirm Password",
+      "confirmPasswordPlaceholder": "••••••••",
+      "signUpButton": "Sign Up",
+      "alreadyHaveAccount": "Already have an account?",
+      "signIn": "Sign In",
+      "loading": "Creating account...",
+      "errors": {
+        "registerFailed": "Registration failed. Please try again.",
+        "networkError": "Network error. Please check your connection."
+      }
     }
   }
 }

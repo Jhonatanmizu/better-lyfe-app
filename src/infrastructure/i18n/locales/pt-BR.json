@@ -27,8 +27,10 @@
     "emailInvalid": "Por favor, insira um e-mail válido",
     "passwordRequired": "Senha é obrigatória",
     "passwordMin": "A senha deve ter pelo menos 6 caracteres",
-    "nameRequired": "Nome é obrigatório",
-    "nameMin": "O nome deve ter pelo menos 2 caracteres",
+    "firstNameRequired": "Nome é obrigatório",
+    "firstNameMin": "O nome deve ter pelo menos 2 caracteres",
+    "lastNameRequired": "Sobrenome é obrigatório",
+    "lastNameMin": "O sobrenome deve ter pelo menos 2 caracteres",
     "confirmPasswordRequired": "Por favor, confirme sua senha",
     "passwordsMustMatch": "As senhas devem coincidir"
   },
@@ -61,6 +63,28 @@
       "successMessage": "Link de redefinição enviado! Verifique seu e-mail.",
       "errors": {
         "sendFailed": "Falha ao enviar link. Por favor, tente novamente.",
+        "networkError": "Erro de rede. Por favor, verifique sua conexão."
+      }
+    },
+    "Register": {
+      "title": "Criar conta",
+      "subtitle": "Cadastre-se para começar sua jornada",
+      "firstNameLabel": "Nome",
+      "firstNamePlaceholder": "Seu nome",
+      "lastNameLabel": "Sobrenome",
+      "lastNamePlaceholder": "Seu sobrenome",
+      "emailLabel": "E-mail",
+      "emailPlaceholder": "seu@email.com",
+      "passwordLabel": "Senha",
+      "passwordPlaceholder": "••••••••",
+      "confirmPasswordLabel": "Confirmar Senha",
+      "confirmPasswordPlaceholder": "••••••••",
+      "signUpButton": "Cadastrar-se",
+      "alreadyHaveAccount": "Já tem uma conta?",
+      "signIn": "Entrar",
+      "loading": "Criando conta...",
+      "errors": {
+        "registerFailed": "Falha no cadastro. Por favor, tente novamente.",
         "networkError": "Erro de rede. Por favor, verifique sua conexão."
       }
     }

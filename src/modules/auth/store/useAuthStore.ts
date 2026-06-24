@@ -16,7 +16,7 @@ interface AuthState {
 interface AuthActions {
   initialize: () => Promise<void>;
   login: (email: string, password: string) => Promise<void>;
-  register: (name: string, email: string, password: string) => Promise<void>;
+  register: (firstName: string, lastName: string, email: string, password: string) => Promise<void>;
   forgotPassword: (email: string) => Promise<{ message: string }>;
   logout: () => Promise<void>;
   refreshAuthToken: () => Promise<void>;
@@ -105,10 +105,10 @@ export const useAuthStore = create<AuthState & AuthActions>()((set, get) => ({
     }
   },
 
-  register: async (name: string, email: string, password: string) => {
+  register: async (firstName: string, lastName: string, email: string, password: string) => {
     set({ isLoading: true, error: null });
     try {
-      const response = await AuthService.register({ name, email, password });
+      const response = await AuthService.register({ firstName, lastName, email, password });
       persistAuth(response);
       set({
         user: response.user,

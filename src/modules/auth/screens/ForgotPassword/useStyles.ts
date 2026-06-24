@@ -1,8 +1,8 @@
 import { StyleSheet } from 'react-native';
-import { palette } from '@/infrastructure/theme';
+import { palette, normalize, moderateScale, scaleFontSize, verticalScale } from '@/infrastructure/theme';
 
-const LOGO_SIZE = 80;
-const ICON_SIZE = 36;
+const LOGO_SIZE = normalize(80);
+const ICON_SIZE = normalize(36);
 
 const useStyles = () => {
   return StyleSheet.create({
@@ -15,8 +15,8 @@ const useStyles = () => {
     },
     logoSection: {
       alignItems: 'center',
-      paddingTop: 60,
-      paddingBottom: 32,
+      paddingTop: moderateScale(60),
+      paddingBottom: moderateScale(32),
     },
     logoCircle: {
       width: LOGO_SIZE,
@@ -31,39 +31,39 @@ const useStyles = () => {
       height: ICON_SIZE,
     },
     headerSection: {
-      paddingHorizontal: 40,
-      gap: 8,
+      paddingHorizontal: moderateScale(40),
+      gap: moderateScale(8),
     },
     formSection: {
-      paddingHorizontal: 40,
-      paddingTop: 40,
-      gap: 24,
+      paddingHorizontal: moderateScale(40),
+      paddingTop: moderateScale(40),
+      gap: moderateScale(24),
     },
     inputGroup: {
-      gap: 8,
+      gap: moderateScale(8),
     },
     input: {
       backgroundColor: palette.white,
-      borderRadius: 8,
+      borderRadius: moderateScale(8),
       borderWidth: 1,
       borderColor: palette.inactive,
-      paddingHorizontal: 16,
-      paddingVertical: 12,
+      paddingHorizontal: moderateScale(16),
+      paddingVertical: moderateScale(12),
     },
     inputError: {
       borderColor: palette.error,
     },
     errorText: {
-      marginTop: 4,
+      marginTop: moderateScale(4),
     },
     buttonSection: {
-      paddingHorizontal: 40,
-      paddingTop: 32,
+      paddingHorizontal: moderateScale(40),
+      paddingTop: moderateScale(32),
     },
     sendButton: {
-      borderRadius: 26,
+      borderRadius: moderateScale(26),
       backgroundColor: palette.mintGreen,
-      height: 52,
+      height: moderateScale(52),
       justifyContent: 'center',
       alignItems: 'center',
     },
@@ -71,15 +71,15 @@ const useStyles = () => {
       opacity: 0.7,
     },
     generalErrorContainer: {
-      paddingHorizontal: 40,
-      paddingTop: 8,
+      paddingHorizontal: moderateScale(40),
+      paddingTop: moderateScale(8),
     },
     generalErrorText: {
       textAlign: 'center',
     },
     successContainer: {
-      paddingHorizontal: 40,
-      paddingTop: 8,
+      paddingHorizontal: moderateScale(40),
+      paddingTop: moderateScale(8),
     },
     successText: {
       textAlign: 'center',
@@ -89,13 +89,13 @@ const useStyles = () => {
       flex: 1,
       justifyContent: 'flex-end',
       alignItems: 'center',
-      paddingBottom: 40,
-      paddingTop: 24,
+      paddingBottom: moderateScale(40),
+      paddingTop: moderateScale(24),
     },
     backButton: {
       flexDirection: 'row',
       alignItems: 'center',
-      gap: 4,
+      gap: moderateScale(4),
     },
     backText: {
       color: palette.textMuted,

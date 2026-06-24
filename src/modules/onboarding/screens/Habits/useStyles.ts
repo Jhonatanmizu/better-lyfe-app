@@ -1,12 +1,13 @@
 import { StyleSheet } from 'react-native';
-import { palette } from '@/infrastructure/theme';
-
-const CIRCLE_OUTER_SIZE = 200;
-const CIRCLE_MIDDLE_SIZE = 140;
-const CIRCLE_INNER_SIZE = 80;
-const ICON_SIZE = 40;
-const DOT_SIZE = 8;
-const BORDER_RADIUS_L = 26;
+import { palette, moderateScale, scaleFontSize, verticalScale } from '@/infrastructure/theme';
+import {
+  CIRCLE_OUTER_SIZE,
+  CIRCLE_MIDDLE_SIZE,
+  CIRCLE_INNER_SIZE,
+  ICON_SIZE,
+  DOT_SIZE,
+  BORDER_RADIUS_L,
+} from '@/modules/onboarding/constants/responsive';
 
 const useStyles = () => {
   return StyleSheet.create({
@@ -15,8 +16,8 @@ const useStyles = () => {
       backgroundColor: palette.background,
     },
     skipContainer: {
-      height: 44,
-      paddingHorizontal: 20,
+      height: moderateScale(44),
+      paddingHorizontal: moderateScale(20),
       justifyContent: 'center',
       alignItems: 'flex-end',
     },
@@ -24,7 +25,7 @@ const useStyles = () => {
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
-      padding: 40,
+      padding: moderateScale(40),
     },
     circleOuter: {
       width: CIRCLE_OUTER_SIZE,
@@ -56,32 +57,32 @@ const useStyles = () => {
     },
     textSection: {
       alignItems: 'center',
-      paddingHorizontal: 40,
-      gap: 16,
+      paddingHorizontal: moderateScale(40),
+      gap: moderateScale(16),
     },
     title: {
       fontFamily: 'Inter',
-      fontSize: 28,
+      fontSize: scaleFontSize(28),
       fontWeight: '700',
       color: palette.textPrimary,
       textAlign: 'center',
-      lineHeight: 36,
+      lineHeight: verticalScale(36),
     },
     description: {
       fontFamily: 'Inter',
-      fontSize: 15,
+      fontSize: scaleFontSize(15),
       fontWeight: '400',
       color: palette.textSecondary,
       textAlign: 'center',
-      lineHeight: 22.5,
+      lineHeight: verticalScale(22.5),
       width: '100%',
     },
     paginationContainer: {
-      height: 40,
+      height: moderateScale(40),
       flexDirection: 'row',
       justifyContent: 'center',
       alignItems: 'center',
-      gap: 8,
+      gap: moderateScale(8),
     },
     dot: {
       width: DOT_SIZE,
@@ -95,19 +96,19 @@ const useStyles = () => {
       backgroundColor: palette.inactive,
     },
     buttonContainer: {
-      paddingHorizontal: 24,
-      paddingBottom: 32,
+      paddingHorizontal: moderateScale(24),
+      paddingBottom: moderateScale(32),
     },
     button: {
       borderRadius: BORDER_RADIUS_L,
     },
     buttonLabel: {
       fontFamily: 'Inter',
-      fontSize: 17,
+      fontSize: scaleFontSize(17),
       fontWeight: '600',
     },
     buttonContent: {
-      height: 52,
+      height: moderateScale(52),
     },
   });
 };

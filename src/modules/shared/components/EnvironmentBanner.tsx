@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, ViewStyle } from 'react-native';
 import { ENVIRONMENT } from '@env';
+import { moderateScale } from '@/infrastructure/theme';
 
 enum ENVIRONMENTS {
   DEV = 'development',
@@ -35,7 +36,7 @@ const EnvironmentBanner = () => {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: 'blue',
-    padding: 10,
+    padding: moderateScale(10),
   },
   text: {
     color: 'white',

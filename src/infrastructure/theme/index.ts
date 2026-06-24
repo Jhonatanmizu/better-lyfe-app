@@ -1,4 +1,9 @@
 import { createTheme } from '@shopify/restyle';
+import {
+  moderateScale,
+  scaleFontSize,
+  verticalScale,
+} from './responsive';
 
 const palette = {
   // Primary brand colors
@@ -64,82 +69,82 @@ const theme = createTheme({
     black: palette.black,
   },
   spacing: {
-    xs: 4,
-    s: 8,
-    m: 16,
-    l: 24,
-    xl: 32,
-    xxl: 40,
+    xs: moderateScale(4),
+    s: moderateScale(8),
+    m: moderateScale(16),
+    l: moderateScale(24),
+    xl: moderateScale(32),
+    xxl: moderateScale(40),
   },
   borderRadii: {
-    s: 8,
-    m: 16,
-    l: 26,
-    xl: 40,
+    s: moderateScale(8),
+    m: moderateScale(16),
+    l: moderateScale(26),
+    xl: moderateScale(40),
     full: 9999,
   },
   textVariants: {
     header: {
       fontFamily: 'Inter',
       fontWeight: 'bold',
-      fontSize: 34,
+      fontSize: scaleFontSize(34),
     },
     title: {
       fontFamily: 'Inter',
-      fontSize: 28,
+      fontSize: scaleFontSize(28),
       fontWeight: '700',
-      lineHeight: 36,
+      lineHeight: verticalScale(36),
       color: 'textPrimary',
     },
     body: {
       fontFamily: 'Inter',
-      fontSize: 16,
-      lineHeight: 24,
+      fontSize: scaleFontSize(16),
+      lineHeight: verticalScale(24),
     },
     description: {
       fontFamily: 'Inter',
-      fontSize: 15,
-      lineHeight: 22.5,
+      fontSize: scaleFontSize(15),
+      lineHeight: verticalScale(22.5),
       color: 'textSecondary',
     },
     button: {
       fontFamily: 'Inter',
-      fontSize: 17,
+      fontSize: scaleFontSize(17),
       fontWeight: '600',
       color: 'white',
     },
     skip: {
       fontFamily: 'Inter',
-      fontSize: 15,
+      fontSize: scaleFontSize(15),
       fontWeight: '500',
       color: 'textMuted',
     },
     label: {
       fontFamily: 'Inter',
-      fontSize: 13,
+      fontSize: scaleFontSize(13),
       fontWeight: '500',
       color: 'textPrimary',
     },
     input: {
       fontFamily: 'Inter',
-      fontSize: 15,
+      fontSize: scaleFontSize(15),
       color: 'textPrimary',
     },
     subtitle: {
       fontFamily: 'Inter',
-      fontSize: 14,
+      fontSize: scaleFontSize(14),
       fontWeight: '400',
       color: 'textMuted',
     },
     link: {
       fontFamily: 'Inter',
-      fontSize: 13,
+      fontSize: scaleFontSize(13),
       fontWeight: '600',
       color: 'primary',
     },
     caption: {
       fontFamily: 'Inter',
-      fontSize: 12,
+      fontSize: scaleFontSize(12),
       color: 'error',
     },
     defaults: {
@@ -151,3 +156,17 @@ const theme = createTheme({
 export type Theme = typeof theme;
 export { palette };
 export default theme;
+
+// Re-export responsive utilities for convenience
+export {
+  normalize,
+  verticalScale,
+  moderateScale,
+  scaleFontSize,
+  isTablet,
+  ifTablet,
+  tabletScale,
+  SCREEN_WIDTH,
+  SCREEN_HEIGHT,
+  getDimensions,
+} from './responsive';
